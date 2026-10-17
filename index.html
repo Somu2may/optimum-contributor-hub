@@ -1,19 +1,383 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101115"><title>Optimum Contributor Hub</title><link rel="stylesheet" href="style.css"></head><body><main class="wrap"><header><img class="logo" src="assets/optimum-logo.png" alt="Optimum"><div class="headercopy">COMMUNITY CONTRIBUTOR<br><small>BUILD · SHARE · CREATE · BELONG</small></div><span class="motto">EVERY<br>CONTRIBUTION<br>COUNTS</span></header><section class="card" id="capture"><div class="profile"><div class="avatar">EC</div><h1 id="memberName">ExampleCreator</h1><p class="handle" id="handle">@examplecreator</p><div class="roles"><span>Creator</span><span>Community Member</span><span>Meme Maker</span></div><div class="joined"><small>MEMBER SINCE</small><strong>12 Jan 2024</strong></div></div><div class="details"><div class="top"><div class="badgepanel"><div class="badgeicon" id="badgeIcon">♛</div><div><small>ACTIVITY BADGE</small><h2 id="badgeTitle">Optimum Legend</h2><p id="badgeSubtitle">Hardcore Contributor · Highest Tier</p><p class="muted" id="badgeDesc">One of the most dedicated and consistent creators in the community.</p></div></div><div class="score"><small>CONTRIBUTION SCORE</small><div class="scoreline"><strong id="score">8,450</strong><span>XP</span></div><div class="progress"><i></i></div><p>🏆 <span id="top">Top 1%</span> of contributors</p></div></div><div class="stats"><div><small>TOTAL POSTS</small><strong id="posts">1,248</strong></div><div><small>CONTENTS TILL DATE</small><strong id="contents">312</strong></div><div><small>MEMES TILL DATE</small><strong id="memes">420</strong></div><div><small>TOTAL MESSAGES</small><strong id="messages">12,680</strong></div></div><div class="activity"><div><small>CONTRIBUTION ACTIVITY · DEMO</small><div class="heatmap" id="heatmap"></div><div class="monthlabels">JAN <span>MAR</span><span>MAY</span><span>JUL</span><span>SEP</span><span>OCT</span></div></div><div class="streak"><strong>56</strong><small>DAY STREAK</small><p>LAST 90 DAYS</p><span>342 Posts · 86 Contents · 121 Memes</span></div></div></div><footer><span>BUILD · SHARE · CREATE · BELONG</span><span>CREATED BY: DEXBLOCKER</span></footer></section>
-<div style="text-align:center; margin:24px 0;">
-  <a
-    href="https://optimum-discord-auth.hemantaitirkl.workers.dev/login"
-    style="
-      display:inline-block;
-      padding:15px 28px;
-      background:#5865F2;
-      color:white;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:700;
-      font-family:Arial,sans-serif;
-    "
-  >
-    Login with Discord
-  </a>
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0c">
+<meta name="description" content="Explore Optimum technology and discover your Optimum Discord community contribution badge.">
+<title>Optimum Community Contributor Hub</title>
+<style>
+:root{--bg:#0b0b0c;--panel:#121214;--panel2:#171719;--line:#303034;--ink:#f3f3f1;--muted:#a4a4a8;--orange:#ed821c;--orange2:#ff9b38}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 Inter,Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.container{width:min(1160px,calc(100% - 48px));margin:auto}
+.top{height:76px;position:sticky;top:0;z-index:20;background:rgba(11,11,12,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.top .container{height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand img{width:164px;max-height:40px;object-fit:contain;object-position:left center}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{font-size:12px;letter-spacing:.08em;color:#b8b8bb;font-weight:700}
+.nav a:hover,.nav a:focus-visible{color:var(--orange2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:12px 21px;border:1px solid #57575a;border-radius:6px;font-size:12px;letter-spacing:.035em;font-weight:800;transition:background .2s,transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--orange);border-color:var(--orange);color:#15110d}
+.btn-primary:hover{background:var(--orange2)}
+.btn-outline:hover{background:#202023}
+.top .btn{padding:10px 14px}
+.section{padding:94px 0;border-bottom:1px solid #29292c}
+.eyebrow{color:var(--orange2);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800}
+.hero{padding:105px 0 98px;border-bottom:1px solid #29292c}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:74px;align-items:center}
+.hero h1{font-size:clamp(46px,5.3vw,79px);letter-spacing:-.065em;line-height:1.04;margin:20px 0 26px;font-weight:850}
+.accent{color:var(--orange)}
+.lead{font-size:18px;color:#b8b8bb;max-width:510px;line-height:1.75}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0 40px}
+.micro{display:flex;flex-wrap:wrap;gap:17px;color:#8f8f95;font-size:11px;letter-spacing:.05em}
+.micro span:before{content:'■';font-size:7px;color:var(--orange);margin-right:8px}
+.preview{background:#0d0d0f;border:1px solid #925119;border-radius:12px;padding:20px;box-shadow:0 22px 70px #0008;max-width:490px;margin-left:auto}
+.preview-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:13px}
+.preview-head img{width:125px;max-height:30px;object-fit:contain}
+.tiny{font-size:9px;letter-spacing:.13em;color:#a2a2a8;font-weight:700}
+.person{display:flex;align-items:center;gap:13px;margin:22px 0}
+.avatar{width:62px;height:62px;border-radius:50%;background:#27272b;border:1px solid #55555a;display:grid;place-items:center;color:#a1a1a5;font-size:29px}
+.person strong{display:block;font-size:17px}
+.person small{color:var(--muted)}
+.demo{display:inline-block;border:1px solid #645037;color:var(--orange2);padding:3px 7px;border-radius:3px;font-size:9px;letter-spacing:.12em}
+.badge-demo{text-align:center;background:#16120e;border:1px solid #72441c;border-radius:6px;padding:21px}
+.badge-demo .symbol{width:54px;height:54px;border:1px solid #a26026;transform:rotate(45deg);margin:8px auto 23px;display:grid;place-items:center}
+.badge-demo .symbol span{transform:rotate(-45deg);font-size:22px;color:var(--orange)}
+.badge-demo strong{display:block;color:#ffad5b}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.stat{border:1px solid var(--line);padding:13px;border-radius:5px;background:#111113}
+.stat small{display:block;color:#9b9ba0;font-size:9px;letter-spacing:.12em}
+.stat b{font-size:22px}
+.progress{height:6px;background:#313136;border-radius:6px;margin:16px 0 10px}
+.progress div{width:0;height:100%;background:var(--orange)}
+.note{font-size:10px;color:#9d9da1;margin:0}
+.section-title{font-size:clamp(31px,3.7vw,49px);line-height:1.15;letter-spacing:-.045em;margin:13px 0 17px}
+.section-intro{max-width:690px;color:var(--muted);font-size:16px;margin:0 0 36px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.feature-stack{display:grid;gap:12px}
+.feature-row{display:flex;gap:18px;border-bottom:1px solid var(--line);padding:15px 0}
+.number{color:var(--orange2);font-size:12px;font-weight:800;letter-spacing:.1em}
+.feature-row h3{margin:0 0 5px;font-size:16px}
+.feature-row p{margin:0;color:var(--muted);font-size:13px}
+.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.metric{border:1px solid var(--line);background:var(--panel);padding:34px;border-radius:7px}
+.metric b{font-size:clamp(35px,5vw,64px);line-height:1;color:var(--orange2);letter-spacing:-.06em}
+.metric h3{font-size:16px;margin:16px 0 8px}
+.metric p{font-size:13px;color:var(--muted);margin:0}
+.smallprint{color:#85858b;font-size:12px;margin-top:16px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:25px 20px}
+.tile .tile-icon{font-size:24px;color:var(--orange2)}
+.tile h3{font-size:16px;margin:18px 0 8px}
+.tile p{font-size:13px;color:var(--muted);margin:0}
+.badge-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}
+.badge-card{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:25px 13px;text-align:center}
+.badge-card img{width:88px;height:88px;object-fit:contain;display:block;margin:0 auto 14px}
+.badge-card h3{font-size:15px;line-height:1.25;margin:0 0 4px}
+.badge-card .role{font-size:11px;color:var(--orange2);margin:0 0 12px}
+.badge-card p:last-child{font-size:12px;color:var(--muted);margin:0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.step{border-top:2px solid #5c3b1e;padding:24px 5px}
+.step .number{font-size:13px}
+.step h3{font-size:18px;margin:16px 0 8px}
+.step p{font-size:13px;color:var(--muted);margin:0}
+.faq{max-width:920px}
+.faq details{border-bottom:1px solid var(--line);padding:20px 0}
+.faq summary{cursor:pointer;font-size:16px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary:after{content:'+';color:var(--orange);font-size:23px;font-weight:400}
+.faq details[open] summary:after{content:'−'}
+.faq p{color:var(--muted);max-width:800px;margin:14px 0 0}
+.cta{display:flex;justify-content:space-between;align-items:center;gap:30px;border:1px solid #744317;background:#14100d;padding:40px;border-radius:8px}
+.cta h2{margin:0 0 8px;font-size:30px;letter-spacing:-.035em}
+.cta p{margin:0;color:var(--muted)}
+footer{padding:32px 0 50px}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-row img{width:130px}
+.footer-row p{font-size:12px;color:#94949a}
+.footer-row a{text-decoration:underline;text-underline-offset:3px}
+.disclaimer{color:#77777d;font-size:11px;margin-top:24px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+@media(max-width:980px){
+.nav{gap:14px}
+.hero-grid{gap:25px}
+.tiles{grid-template-columns:repeat(2,1fr)}
+.badge-grid{grid-template-columns:repeat(3,1fr)}
+.steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+.container{width:min(100% - 32px,1160px)}
+.top{height:66px}
+.brand img{width:130px}
+.nav{display:none}
+.top .btn{font-size:10px;padding:9px}
+.hero{padding:62px 0}
+.hero-grid,.split{grid-template-columns:1fr;gap:35px}
+.hero h1{font-size:48px}
+.lead{font-size:16px}
+.preview{margin:0;max-width:none}
+.section{padding:65px 0}
+.metric-grid,.tiles,.steps{grid-template-columns:1fr 1fr}
+.badge-grid{grid-template-columns:repeat(2,1fr)}
+.cta{display:block;padding:25px}
+.cta .btn{margin-top:22px}
+.metric{padding:22px}
+.metric b{font-size:39px}
+}
+@media(max-width:430px){
+.metric-grid,.tiles{grid-template-columns:1fr}
+.hero h1{font-size:42px}
+.badge-card{padding:17px 8px}
+.badge-card img{width:70px;height:70px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+<div class="container">
+<a class="brand" href="#home" aria-label="Optimum Community Hub home">
+<img src="https://raw.githubusercontent.com/Somu2may/optimum-contributor-hub/optimum-v2/assets/optimum-logo.png" alt="Optimum">
+</a>
+<nav class="nav" aria-label="Main navigation">
+<a href="#home">OVERVIEW</a>
+<a href="#technology">TECHNOLOGY</a>
+<a href="#badges">BADGES</a>
+<a href="#how-it-works">HOW IT WORKS</a>
+<a href="#faq">FAQ</a>
+</nav>
+<a class="btn btn-primary" href="https://optimum-discord-auth.hemantaitirkl.workers.dev/login">◉ &nbsp; LOGIN WITH DISCORD</a>
 </div>
-<div class="actions"><button id="flex">𝕏 &nbsp; FLEX ON X</button><button id="download">↓ &nbsp; DOWNLOAD CARD</button></div><section class="settings"><h2>Customize demo card</h2><p>This is a design prototype. Values are illustrative and are not verified Discord statistics.</p><div class="fields"><label>Member<input id="nameInput" value="ExampleCreator" maxlength="30"></label><label>Contribution Score<input id="scoreInput" type="number" min="0" value="8450"></label><label>Badge<select id="badgeInput"><option>Optimum Legend</option><option>Mump2P Elite</option><option>Optimum Catalyst</option><option>Mump2P Spark</option><option>Optimum Scout</option></select></label><label>Discord PFP<input id="pfpInput" type="file" accept="image/*"></label></div><p class="note">Discord OAuth and actual submission tracking will be integrated in a later phase. This site does not claim to be an official Optimum product.</p></section></main><script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script><script src="script.js"></script></body></html>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">Discord Community Contributor Hub</div>
+<h1>Your contribution,<br><span class="accent">clearly recognized</span></h1>
+<p class="lead">Connect your Discord account, explore your contribution stats, discover your badge and celebrate your place in the Optimum community.</p>
+<div class="actions">
+<a class="btn btn-primary" href="https://optimum-discord-auth.hemantaitirkl.workers.dev/login">◉ &nbsp; LOGIN WITH DISCORD &nbsp; →</a>
+<a class="btn btn-outline" href="#about">EXPLORE THE PROJECT ↓</a>
+</div>
+<div class="micro">
+<span>COMMUNITY DATA</span>
+<span>PERSONALIZED BADGES</span>
+<span>DOWNLOAD AND SHARE</span>
+</div>
+</div>
+
+<div class="preview" aria-label="Illustrative contributor card preview">
+<div class="preview-head">
+<img src="https://raw.githubusercontent.com/Somu2may/optimum-contributor-hub/optimum-v2/assets/optimum-logo.png" alt="Optimum">
+<span class="tiny">COMMUNITY CONTRIBUTOR</span>
+</div>
+<div class="person">
+<div class="avatar" aria-hidden="true">●</div>
+<div>
+<strong>Contributor 001</strong>
+<small>Example profile</small><br>
+<span class="demo">DEMO PREVIEW</span>
+</div>
+</div>
+<div class="badge-demo">
+<div class="tiny">YOUR CONTRIBUTION BADGE</div>
+<div class="symbol"><span>◇</span></div>
+<strong>Community Contributor</strong>
+<small>Illustrative badge only</small>
+</div>
+<div class="stat-grid">
+<div class="stat"><small>LEADERBOARD RANK</small><b>—</b></div>
+<div class="stat"><small>DISCORD LEVEL</small><b>—</b></div>
+<div class="stat"><small>TOTAL XP</small><b>—</b></div>
+<div class="stat"><small>TOTAL MESSAGES</small><b>—</b></div>
+</div>
+<div class="progress"><div></div></div>
+<p class="note">Demo only. Log in to view your own available community statistics.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="about">
+<div class="container split">
+<div>
+<div class="eyebrow">About the project</div>
+<h2 class="section-title">Meet <span class="accent">Optimum</span></h2>
+<p class="section-intro">Optimum is a Universal Data Acceleration Network focused on improving how data moves across blockchains. It helps networks propagate critical data faster while using less bandwidth.</p>
+<p style="color:var(--muted)">Optimum is not a Layer 1 or Layer 2 blockchain. It works alongside existing chains at the data propagation layer.</p>
+<div class="actions">
+<a class="btn btn-primary" href="https://www.getoptimum.xyz/" target="_blank" rel="noopener noreferrer">OFFICIAL WEBSITE ↗</a>
+<a class="btn btn-outline" href="https://docs.getoptimum.xyz/" target="_blank" rel="noopener noreferrer">READ THE DOCS ↗</a>
+</div>
+</div>
+<div class="feature-stack">
+<div class="feature-row">
+<span class="number">01</span>
+<div><h3>Universal data acceleration</h3><p>Faster, more bandwidth-efficient blockchain data propagation.</p></div>
+</div>
+<div class="feature-row">
+<span class="number">02</span>
+<div><h3>Chain-agnostic architecture</h3><p>Designed to work across chains without protocol rewrites.</p></div>
+</div>
+<div class="feature-row">
+<span class="number">03</span>
+<div><h3>No consensus changes</h3><p>Works alongside existing execution and consensus infrastructure.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="performance">
+<div class="container">
+<div class="eyebrow">Reported test performance</div>
+<h2 class="section-title">Better data movement,<br><span class="accent">measurable impact</span></h2>
+<p class="section-intro">Performance comparisons published by Optimum against the Gossipsub baseline.</p>
+<div class="metric-grid">
+<div class="metric">
+<b>6–20×</b>
+<h3>Faster block and blob delivery</h3>
+<p>Optimum-reported comparison with Gossipsub.</p>
+</div>
+<div class="metric">
+<b>~90–95%</b>
+<h3>Bandwidth reduction</h3>
+<p>Optimum-reported comparison with Gossipsub.</p>
+</div>
+</div>
+<p class="smallprint">These are project-reported benchmark results, not guaranteed performance in every network or deployment. <a href="https://www.getoptimum.xyz/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">Source: Optimum official website ↗</a></p>
+</div>
+</section>
+
+<section class="section" id="technology">
+<div class="container">
+<div class="eyebrow">Under the hood</div>
+<h2 class="section-title">Built for <span class="accent">efficient propagation</span></h2>
+<p class="section-intro">Optimum focuses on the networking foundation rather than replacing the blockchain itself.</p>
+<div class="tiles">
+<article class="tile">
+<div class="tile-icon">◇</div>
+<h3>RLNC Technology</h3>
+<p>Random Linear Network Coding helps reduce redundant data transmission.</p>
+</article>
+<article class="tile">
+<div class="tile-icon">▣</div>
+<h3>Validator Friendly</h3>
+<p>Designed to complement existing validator infrastructure.</p>
+</article>
+<article class="tile">
+<div class="tile-icon">≡</div>
+<h3>Consensus Unchanged</h3>
+<p>Chains retain their existing execution and consensus rules.</p>
+</article>
+<article class="tile">
+<div class="tile-icon">↗</div>
+<h3>Chain Agnostic</h3>
+<p>A network-layer approach intended to work across blockchains.</p>
+</article>
+</div>
+</div>
+</section>
+
+<section class="section" id="badges">
+<div class="container">
+<div class="eyebrow">Community recognition</div>
+<h2 class="section-title">Contributor <span class="accent">badge tiers</span></h2>
+<p class="section-intro">Five community hub badge tiers to celebrate participation. These are unofficial hub classifications, not official Optimum roles or rewards.</p>
+<div class="badge-grid">
+<article class="badge-card">
+<img src="https://raw.githubusercontent.com/Somu2may/optimum-contributor-hub/optimum-v2/assets/optimum-legend.png" alt="Optimum Legend badge">
+<h3>Optimum Legend</h3><p class="role">Hardcore Contributor</p><p>Top community activity tier.</p>
+</article>
+<article class="badge-card">
+<img src="https://raw.githubusercontent.com/Somu2may/optimum-contributor-hub/optimum-v2/assets/mump2p-elite.png" alt="Mump2P Elite badge">
+<h3>Mump2P Elite</h3><p class="role">Exceptional Contributor</p><p>Consistent community engagement.</p>
+</article>
+<article class="badge-card">
+<img src="https://raw.githubusercontent.com/Somu2may/optimum-contributor-hub/optimum-v2/assets/optimum-catalyst.png" alt="Optimum Catalyst badge">
+<h3>Optimum Catalyst</h3><p class="role">Active Contributor</p><p>Active participation and growth.</p>
+</article>
+<article class="badge-card">
+<img src="https://raw.githubusercontent.com/Somu2may/optimum-contributor-hub/optimum-v2/assets/mump2p-spark.png" alt="Mump2P Spark badge">
+<h3>Mump2P Spark</h3><p class="role">Growing Contributor</p><p>Building community momentum.</p>
+</article>
+<article class="badge-card">
+<img src="https://raw.githubusercontent.com/Somu2may/optimum-contributor-hub/optimum-v2/assets/optimum-scout.png" alt="Optimum Scout badge">
+<h3>Optimum Scout</h3><p class="role">Occasional Contributor</p><p>Starting the contributor journey.</p>
+</article>
+</div>
+</div>
+</section>
+
+<section class="section" id="how-it-works">
+<div class="container">
+<div class="eyebrow">Simple onboarding</div>
+<h2 class="section-title">How it <span class="accent">works</span></h2>
+<p class="section-intro">Your community card is a few steps away.</p>
+<div class="steps">
+<div class="step"><div class="number">01 / CONNECT</div><h3>Log in with Discord</h3><p>Use Discord OAuth to securely sign in. Never share your password with the hub.</p></div>
+<div class="step"><div class="number">02 / DISCOVER</div><h3>View your stats</h3><p>See available leaderboard activity, XP, level and message data.</p></div>
+<div class="step"><div class="number">03 / RECOGNIZE</div><h3>Discover your badge</h3><p>See your hub badge tier based on the current classification rules.</p></div>
+<div class="step"><div class="number">04 / SHARE</div><h3>Download and flex</h3><p>Save your contributor card as a PNG and share it on X.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="faq">
+<div class="container faq">
+<div class="eyebrow">Need to know</div>
+<h2 class="section-title">Frequently asked <span class="accent">questions</span></h2>
+<details>
+<summary>Is this an official Optimum website?</summary>
+<p>No. This Contributor Hub is an independent community project created by dexblocker. It is not operated or endorsed by the Optimum team.</p>
+</details>
+<details>
+<summary>Where do my contribution statistics come from?</summary>
+<p>The hub uses available Discord membership details and publicly accessible community leaderboard data. Stats can be delayed or unavailable; they do not represent a verified count of all content contributions.</p>
+</details>
+<details>
+<summary>Do I need to join the Optimum Discord community?</summary>
+<p>The hub is designed for Optimum Discord community members. Available stats depend on your account and whether it appears in the accessible community data.</p>
+</details>
+<details>
+<summary>Are these badges official Optimum rewards?</summary>
+<p>No. They are visual recognition tiers created for this independent hub, not official Discord roles, tokens, or financial rewards.</p>
+</details>
+<details>
+<summary>Can I share my card?</summary>
+<p>Yes. Download your card as a PNG and attach it to a post on X. The FLEX ON X action prepares a post; image attachment is manual.</p>
+</details>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="cta">
+<div>
+<div class="eyebrow">Your community journey</div>
+<h2>Every contribution counts</h2>
+<p>Discover your progress and share your place in the community.</p>
+</div>
+<a class="btn btn-primary" href="https://optimum-discord-auth.hemantaitirkl.workers.dev/login">◉ &nbsp; LOGIN WITH DISCORD →</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-row">
+<img src="https://raw.githubusercontent.com/Somu2may/optimum-contributor-hub/optimum-v2/assets/optimum-logo.png" alt="Optimum">
+<p>Independent community project · <a href="https://www.getoptimum.xyz/" target="_blank" rel="noopener noreferrer">Official Optimum website ↗</a></p>
+<p>CREATED BY <strong style="color:#eee">DEXBLOCKER</strong></p>
+</div>
+<p class="disclaimer">This website is an unofficial community-made contributor dashboard. Optimum branding and project information belong to their respective owners. No official affiliation or endorsement is implied.</p>
+</div>
+</footer>
+</body>
+</html>
